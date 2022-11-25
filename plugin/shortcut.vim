@@ -23,7 +23,7 @@ endfunction
 function! s:shortcut_menu_items() abort
   let labels = map(copy(g:shortcuts), 'ShortcutLeaderKeys(v:key)')
   let width = max(map(values(labels), 'len(v:val)')) + 4
-  return values(map(labels, "printf('%-".width."S%s', v:val, g:shortcuts[v:key])"))
+  return sort(values(map(labels, "printf('%-".width."S%s', v:val, g:shortcuts[v:key])")))
 endfunction
 
 function! s:shortcut_menu_item_action(choice) abort
